@@ -12,9 +12,9 @@
 <body>
     <div class="container mt-5">
         <h2>Student Management System</h2>
-        <a href="/pages/add_student.php" class="btn btn-success">Add student</a>
-        <a href="/pages/view_students.php" class="btn btn-success">View Students</a>
-        <a href="/pages/edit_grades.php" class="btn btn-success">Edit Grades</a>
+        <a href="./pages/add_student.php" class="btn btn-success">Add student</a>
+        <a href="./pages/view_students.php" class="btn btn-success">View Students</a>
+        <a href="./pages/edit_grades.php" class="btn btn-success">Edit Grades</a>
     </div>
 
     <!-- JS -->
