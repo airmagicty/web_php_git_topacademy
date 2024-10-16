@@ -11,3 +11,11 @@ CREATE TABLE students (
 	parent_mobile VARCHAR(15),
 	image VARCHAR(255)
 );
+
+CREATE TABLE grades (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	student_id INT,
+	subject VARCHAR(100),
+	grade DECIMAL(5,2),
+	FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
