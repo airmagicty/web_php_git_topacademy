@@ -2,7 +2,7 @@
 
 require_once '../includes/connect.php';
 
-$sql = "SELECT students.id, students.name, students.email, students.group_number, students.mobile, students.parent_mobile, students.image, GROUP_CONCAT(grades.subject SEPARATOR ', ') AS subjects, GROUP_CONCAT(grades.grade SEPARATOR ', ') AS grades
+$sql = "SELECT students.id, students.name, students.email, students.group_number, students.mobile, students.parent_mobile, students.image, GROUP_CONCAT(grades.subject SEPARATOR ', ') AS subject, GROUP_CONCAT(grades.grade SEPARATOR ', ') AS grade
         FROM students
         LEFT JOIN grades ON students.id = grades.student_id
         GROUP BY students.id
@@ -10,6 +10,7 @@ $sql = "SELECT students.id, students.name, students.email, students.group_number
 
 
 $result = mysqli_query($conn, $sql);
+// $result = db_query($sql);
 ?>
 
 <!DOCTYPE html>
