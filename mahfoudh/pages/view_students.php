@@ -2,9 +2,12 @@
 
 require_once '../includes/connect.php';
 
-$sql = "SELECT students.id, students.name, students.email, students.group_number, students.mobile, students.parent_mobile, students.image, grades.subject, grades.grade
- FROM students
- LEFT JOIN grades ON students.id = grades.student_id";
+$sql = "SELECT students.id, students.name, students.email, students.group_number, students.mobile, students.parent_mobile, students.image, GROUP_CONCAT(grades.subject SEPARATOR ', ') AS subjects, GROUP_CONCAT(grades.grade SEPARATOR ', ') AS grades
+        FROM students
+        LEFT JOIN grades ON students.id = grades.student_id
+        GROUP BY students.id
+";
+
 
 $result = mysqli_query($conn, $sql);
 ?>
@@ -52,6 +55,7 @@ $result = mysqli_query($conn, $sql);
                         <td>".$row['subject']."</td>
                         <td>".$row['grade']."</td>
                         <td>
+                            <a href='./add_grade.php?id=".$row['id']."' class='btn btn-warning'>Add Grade</a>
                             <a href='../includes/delete_student.php?id=".$row['id']."' class='btn btn-danger'>Delete</a>
                         </td>
                         </tr>";
