@@ -20,6 +20,7 @@ $sql = "INSERT INTO students (name, email, group_number, mobile, parent_mobile, 
 
 if (mysqli_query($conn, $sql) === TRUE) {
     echo "New record created successfully";
+    header('Location:../index.php');
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }

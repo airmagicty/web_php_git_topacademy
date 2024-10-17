@@ -52,7 +52,7 @@ $result = mysqli_query($conn, $sql);
                         <td>".$row['subject']."</td>
                         <td>".$row['grade']."</td>
                         <td>
-                            <a href='delete_student.php?id=".$row['id']."' class='btn btn-danger'>Delete</a>
+                            <a href='../includes/delete_student.php?id=".$row['id']."' class='btn btn-danger'>Delete</a>
                         </td>
                         </tr>";
                     }
