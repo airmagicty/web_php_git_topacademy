@@ -12,7 +12,7 @@
 <body>
     <div class="container mt-5">
         <h2>Add Student</h2>
-        <form action="insert_student.php" method="POST" enctype="multipart/form-data">
+        <form action="../includes/insert_student.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" class="form-control" id="name" name="name" required>
@@ -37,6 +37,7 @@
                 <label for="image">Image:</label>
                 <input type="file" class="form-control-file" id="image" name="image" required>
             </div>
+            <button type="submit" class="btn btn-primary">Add Student</button>
         </form>
     </div>
 
