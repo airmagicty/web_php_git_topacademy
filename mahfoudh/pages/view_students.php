@@ -57,6 +57,8 @@ $result = mysqli_query($conn, $sql);
                         <td>".$row['grade']."</td>
                         <td>
                             <a href='./add_grade.php?id=".$row['id']."' class='btn btn-warning'>Add Grade</a>
+                            <a href='./edit_grades.php?id=".$row['id']."' class='btn btn-warning'>Edit Grade</a>
+                            <a href='./edit_student.php?id=".$row['id']."' class='btn btn-warning'>Edit Student</a>
                             <a href='../includes/delete_student.php?id=".$row['id']."' class='btn btn-danger'>Delete</a>
                         </td>
                         </tr>";
