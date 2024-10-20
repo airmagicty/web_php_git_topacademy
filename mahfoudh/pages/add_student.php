@@ -11,6 +11,8 @@
 </head>
 <body>
     <div class="container mt-5">
+        <a href="./main.php" class="btn btn-secondary">Back to Main</a>
+
         <h2>Add Student</h2>
         <form action="../includes/insert_student.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">

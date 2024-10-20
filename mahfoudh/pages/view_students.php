@@ -1,16 +1,34 @@
 <?php 
 
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
 require_once '../includes/connect.php';
 
-$sql = "SELECT students.id, students.name, students.email, students.group_number, students.mobile, students.parent_mobile, students.image, GROUP_CONCAT(grades.subject SEPARATOR ', ') AS subject, GROUP_CONCAT(grades.grade SEPARATOR ', ') AS grade
-        FROM students
-        LEFT JOIN grades ON students.id = grades.student_id
-        GROUP BY students.id
-";
+// $sql = "SELECT students.id, students.name, students.email, students.group_number, students.mobile, students.parent_mobile, students.image, GROUP_CONCAT(grades.subject SEPARATOR ', ') AS subject, GROUP_CONCAT(grades.grade SEPARATOR ', ') AS grade
+//         FROM students
+//         LEFT JOIN grades ON students.id = grades.student_id
+//         GROUP BY students.id
+// ";
 
+
+// $sql = "SELECT * FROM students";
+
+
+// $result = mysqli_query($conn, $sql);
+
+$search = '';
+if (isset($_GET['search'])){
+    $search = $_GET['search'];
+}
+
+$sql = "SELECT * FROM students WHERE name LIKE '%$search%'";
 
 $result = mysqli_query($conn, $sql);
-// $result = db_query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,19 +42,27 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
     <div class="container mt-5">
-        <h2>Students List with Grades</h2>
+        <a href="./add_student.php" class="btn btn-success">Add New Student</a> 
+        <a href="./main.php" class="btn btn-secondary">Back to Main</a>
+        <h2>Students List</h2>
+        <!-- Search Form -->
+         <form method="GET" action="" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search by name" value="<?php echo htmlspecialchars($search); ?>">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Group Number</th>
+                    <th>Group Name</th>
                     <th>Email</th>
                     <th>Mobile</th>
                     <th>Parent's Mobile</th>
                     <th>Image</th>
-                    <th>Subject</th>
-                    <th>Grade</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -48,16 +74,14 @@ $result = mysqli_query($conn, $sql);
                         echo " <tr>
                         <td>".$row['id']."</td>
                         <td>".$row['name']."</td>
-                        <td>".$row['group_number']."</td>
+                        <td>".$row['group_name']."</td>
                         <td>".$row['email']."</td>
                         <td>".$row['mobile']."</td>
                         <td>".$row['parent_mobile']."</td>
                         <td><img src='../uploads/".$row['image']."' alt='student image' width='100'></td>
-                        <td>".$row['subject']."</td>
-                        <td>".$row['grade']."</td>
+
                         <td>
-                            <a href='./add_grade.php?id=".$row['id']."' class='btn btn-warning'>Add Grade</a>
-                            <a href='./edit_grades.php?id=".$row['id']."' class='btn btn-warning'>Edit Grade</a>
+                            <a href='./view_marks.php?id=".$row['id']."' class='btn btn-warning'>view marks</a>
                             <a href='./edit_student.php?id=".$row['id']."' class='btn btn-warning'>Edit Student</a>
                             <a href='../includes/delete_student.php?id=".$row['id']."' class='btn btn-danger'>Delete</a>
                         </td>
@@ -70,7 +94,7 @@ $result = mysqli_query($conn, $sql);
             </tbody>
         </table>
             
-        <a href="./add_student.php" class="btn btn-success">Add New Student</a>          
+                 
                 
     </div>
 

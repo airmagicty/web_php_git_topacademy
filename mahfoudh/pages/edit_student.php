@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
+
 include '../includes/connect.php';
 
 //get student data by id if id is provided in the url query string
