@@ -45,12 +45,12 @@ async function fetchTasks() {
                     // Заполняем поля формы в модальном окне
                     console.log(task.task_title, task.description)
                     document.getElementById('task_id_in_module').innerText = task.task_id; // Записываем ID задачи
-                    document.getElementById('task_title_module').innerText = task.task_title;
+                    document.getElementById('task_title_module').value = task.task_title;
                     // console.log( document.getElementById('task_title_module').innerText);
                     document.getElementById('task_description_module').innerText = task.description;
-                    document.getElementById('due_date_module').innerText = task.due_date;
-                    document.getElementById('priority_module').innerText = task.priority;
-                    document.getElementById('status_module').innerText = task.status;
+                    document.getElementById('due_date_module').value = task.due_date;
+                    document.getElementById('priority_module').value = task.priority;
+                    document.getElementById('status_module').value = task.status;
 
                     // Открываем модальное окно
                     modal.style.display = "block";

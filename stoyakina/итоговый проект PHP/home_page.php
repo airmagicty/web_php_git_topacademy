@@ -71,8 +71,8 @@
         <!-- <p id="modal-description">Описание задачи</p> -->
         <!-- Здесь можно добавить форму для редактирования -->
         
-        <form action="module_edit_task.php" method="post">
-            <p id="task_id_in_module"></p>
+        <form action="module_change_task.php" method="post">
+            <p id="task_id_in_module" name="task_id_in_module"></p>
             <div class="form-group">
                 <label for="task_title_module">Название задачи:</label>
                 <input type="text" id="task_title_module" name="task_title_module" required>
@@ -117,7 +117,7 @@
     <h2>Список задач</h2>
     <div id="tasks-container"></div>
 </div>
-
+ 
 <script src='js/get_tasks.js' defer></script>
 <script src='js/change_task.js' defer></script>
 
