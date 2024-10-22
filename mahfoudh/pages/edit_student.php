@@ -75,7 +75,7 @@ if (isset($_POST['update'])) {
                 <input type="email" class="form-control" id="email" name="email" value="<?php echo $student_data['email']; ?>" required>
             </div>
             <div class="form-group">
-                <label for="group_number">Group Namber:</label>
+                <label for="group_number">Group Name:</label>
                 <input type="text" class="form-control" id="group_name" name="group_name" value="<?php echo $student_data['group_name']; ?>" required>
             </div>
             <div class="form-group">
