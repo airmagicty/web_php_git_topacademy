@@ -85,7 +85,13 @@ $result = mysqli_query($conn, $sql);
                         <td>".$row['email']."</td>
                         <td>".$row['mobile']."</td>
                         <td>".$row['parent_mobile']."</td>
-                        <td><img src='../uploads/".$row['image']."' alt='student image' width='100'></td>
+                        <td><img src='../";
+                        if ($row['image'] != "") {
+                            echo "uploads/". $row['image'];
+                        } else {
+                            echo "images/default.jpg";
+                        }
+                        echo "' alt='student image' width='100'></td>
 
                         <td>
                             <a href='./view_marks.php?id=".$row['id']."' class='btn btn-warning'>view marks</a>

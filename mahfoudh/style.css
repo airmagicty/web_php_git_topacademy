@@ -55,6 +55,16 @@ body {
   padding: 20px;
 }
 
+.student-list td , .student-list th{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.student-list img {
+    display: block;
+    margin: 0 auto;
+}
+
 .student-close-btn {
   position: absolute;
   top: 7px;
