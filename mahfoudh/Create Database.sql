@@ -22,6 +22,6 @@ CREATE TABLE marks (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	student_id INT,
 	subject VARCHAR(100),
-	mark DECIMAL(5,2),
+	mark INT(1),
 	FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
 );

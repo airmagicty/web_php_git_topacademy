@@ -16,8 +16,12 @@ require_once './includes/login.php';
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Style  -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>   
+        <!-- for show error massage  -->
         <?php if (isset($error_message)): ?>
             <div class="alert alert-danger" role="alert">
                 <?php echo $error_message; ?>
@@ -25,7 +29,7 @@ require_once './includes/login.php';
         <?php endif; ?>
     <div class="container d-flex justify-content-center align-items-center vh-100">
 
-        <div class="card p-4 shadow-lg text-primary" style="width: 400px; height: 400px;">
+        <div class="card p-4 shadow-lg text-primary login" style="width: 400px; height: 400px;">
             <h3 class="text-center mb-4">Login</h3>
             <form action="" method="post">
                 <div class="mb-3">

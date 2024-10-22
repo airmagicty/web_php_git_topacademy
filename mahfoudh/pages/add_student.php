@@ -8,9 +8,12 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Style  -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 add-s-container">
         <a href="./main.php" class="btn btn-secondary">Back to Main</a>
 
         <h2>Add Student</h2>
@@ -36,8 +39,8 @@
                 <input type="text" class="form-control" id="parent_mobile" name="parent_mobile" required>
             </div>
             <div class="form-group">
-                <label for="image">Image:</label>
-                <input type="file" class="form-control-file" id="image" name="image" required>
+                <label for="image" class="form-label">Image:</label>
+                <input type="file" class="form-control" id="image" name="image" >
             </div>
             <button type="submit" class="btn btn-primary">Add Student</button>
         </form>

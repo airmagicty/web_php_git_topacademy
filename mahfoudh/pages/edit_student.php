@@ -23,7 +23,7 @@ if (isset($_POST['update'])) {
 
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $group_number = $_POST['group_number'];
+    $group_number = $_POST['group_name'];
     $mobile = $_POST['mobile'];
     $parent_mobile = $_POST['parent_mobile'];
 
@@ -32,9 +32,9 @@ if (isset($_POST['update'])) {
     $image_tmp = $_FILES['image']['tmp_name'];
     if (!empty($image)) {
         move_uploaded_file($image_tmp, "../uploads/$image");
-        $sql = "UPDATE students SET name='$name', email='$email', group_number='$group_number', mobile='$mobile', parent_mobile='$parent_mobile', image='$image' WHERE id=$student_id";
+        $sql = "UPDATE students SET name='$name', email='$email', group_name='$group_name', mobile='$mobile', parent_mobile='$parent_mobile', image='$image' WHERE id=$student_id";
     } else {
-        $sql = "UPDATE students SET name='$name', email='$email', group_number='$group_number', mobile='$mobile', parent_mobile='$parent_mobile' WHERE id=$student_id";
+        $sql = "UPDATE students SET name='$name', email='$email', group_name='$group_name', mobile='$mobile', parent_mobile='$parent_mobile' WHERE id=$student_id";
     }
 
     // execute the SQL query
@@ -58,9 +58,12 @@ if (isset($_POST['update'])) {
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Style  -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5 edit-student">
         <h2>Edit Student</h2>
         <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
@@ -73,7 +76,7 @@ if (isset($_POST['update'])) {
             </div>
             <div class="form-group">
                 <label for="group_number">Group Namber:</label>
-                <input type="text" class="form-control" id="group_number" name="group_number" value="<?php echo $student_data['group_number']; ?>" required>
+                <input type="text" class="form-control" id="group_name" name="group_name" value="<?php echo $student_data['group_name']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="mobile">Mobile Number:</label>

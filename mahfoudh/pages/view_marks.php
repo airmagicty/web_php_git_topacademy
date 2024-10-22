@@ -54,9 +54,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Style  -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container m-5">
+    <div class="container m-5 student-marks">
         <h2>Student Marks</h2>
         <form action="" method="post">
             <div class="form-group">
@@ -67,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <label for="mark">Mark (from 2 to 5):</label>
                 <input type="number" class="form-control" id="mark" name="mark" min="2" max="5" required>
             </div>
-            <button type="submit" class="btn btn-primary">Add/Update Mark</button>
+            <button type="submit" class="btn btn-primary">Add Mark</button>
         </form>
 
         <h3 class="mt-4">Marks List</h3>
