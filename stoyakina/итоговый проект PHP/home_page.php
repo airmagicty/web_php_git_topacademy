@@ -72,7 +72,7 @@
         <!-- Здесь можно добавить форму для редактирования -->
         
         <form action="module_change_task.php" method="post">
-            <p id="task_id_in_module" name="task_id_in_module"></p>
+            <input  id="task_id_in_module" name="task_id_in_module" type=hidden>
             <div class="form-group">
                 <label for="task_title_module">Название задачи:</label>
                 <input type="text" id="task_title_module" name="task_title_module" required>
@@ -86,7 +86,7 @@
                 <input type="datetime-local" id="due_date_module" name="due_date_module" required>
             </div>
             <div class="form-group">
-                <label for="priorit_moduley">Приоритет:</label>
+                <label for="priority_module">Приоритет:</label>
                 <select id="priority_module" name="priority_module" required>
                     <option value="high">Высокий</option>
                     <option value="medium">Средний</option>
