@@ -88,10 +88,10 @@
 						} else if($qq['quantity'] >= 1) { 
 						?> 
 						<!-- //<p class="text-success">Можно взять</p> 						 -->
-						<form method="POST" action="quantity.php">
-							<input type="hidden" value="<?php echo $qq['book_id']; ?> " name="book_id">
-							<input type="hidden" value="<?php echo $qq['quantity']; ?> " name="quantity">
-							<input type="button" value="Можно взять" name="btn" onclick="alert('Есть в наличии!')">
+						<form method="POST" action="">
+							<input type="hidden" value="<?php echo $qq['book_id']; ?>" name="book_id">
+							<input type="hidden" value="<?php echo $qq['quantity']; ?>" name="quantity">
+							<input type="submit" value="Можно взять" name="btn_quantity">
 						</form>
 							
 
@@ -117,18 +117,18 @@
 
 
 <?php 
-	if(isset($_POST["btn"])) { 
+	if(isset($_POST["btn_quantity"])) { 
 		include("connect.php"); 
-		$book_id=$_POST[`book_id`]; 
-		$new_quantity=$_POST[`quantity`] - 1; 
+		$book_id=$_POST['book_id']; 
+		$new_quantity=$_POST['quantity'] - 1; 
 
 
 		$q="UPDATE `book` 
         SET `quantity` = '$new_quantity' 
-        WHERE `book`.`book_id` = '$book_id';
-    "; 
+        WHERE `book`.`book_id` = '$book_id';"; 
 
 		mysqli_query($con,$q); 
+		// echo "<pre>".print_r($_POST)."</pre>";
 		header("location:index.php"); 
 	} 
 
