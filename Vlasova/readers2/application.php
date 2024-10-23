@@ -2,10 +2,10 @@
 include("connect.php"); // Подключение к базе данных
 
 // Запрос для получения списка взятых книг
-$query = "SELECT `aplication`.`application_id`, `book`.`title`, `reader`.`name`, `aplication`.`data_time`	 
-          FROM `aplication` 
-          INNER JOIN `book`  ON `aplication`.`book_id` = `book`.`book_id`
-          INNER JOIN `reader`  ON `aplication`.`reader_id` = `reader`.`reader_id`";
+$query = "SELECT `application`.`application_id`, `book`.`title`, `reader`.`name`, `application`.`data_time`	 
+          FROM `application` 
+          INNER JOIN `book`  ON `application`.`book_id` = `book`.`book_id`
+          INNER JOIN `reader`  ON `application`.`reader_id` = `reader`.`reader_id`;";
 $result = mysqli_query($con, $query);
 ?>
 
