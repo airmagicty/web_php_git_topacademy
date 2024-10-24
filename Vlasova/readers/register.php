@@ -123,7 +123,8 @@ if(isset($_POST["btn"])) {
         }
     
         // проверяем, не сущестует ли пользователя с таким именем
-        $query = mysqli_query("SELECT `reader_id` FROM `reader` WHERE $login='".mysqli_real_escape_string($_POST['login'])."'");
+        // echo "SELECT `reader_id` FROM `reader` WHERE `login`='".($_POST['login'])."'";
+        $query = mysqli_query($con, "SELECT `reader_id` FROM `reader` WHERE `login`='".($_POST['login'])."'");
         if(mysqli_num_rows($query) > 0)
         {
             $err[] = "Пользователь с таким логином уже существует в базе данных";
@@ -136,7 +137,8 @@ if(isset($_POST["btn"])) {
             // $login = $_POST['login'];
     
             // Убераем лишние пробелы и делаем двойное хеширование
-            $password = md5(md5(trim($_POST['password'])));}
+            $password = md5(md5(trim($_POST['password'])));
+        }
 
    
     $q = "INSERT INTO `reader` (`name`, `login`, `email`, `password`) 
