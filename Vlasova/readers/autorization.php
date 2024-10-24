@@ -83,12 +83,13 @@ label {
 					class="btn btn-danger"
 					name="btn"> 
 			</div> 
-            <div class="form-group"> 
+            <!-- <div class="form-group"> 
 				<input type="submit"
 					value="Зарегистрироваться"
 					class="btn btn-danger"
 					name="btn"> 
-			</div>   
+			</div>    -->
+      <a href="register.php">Зарегестрироваться</a>
 		</form>
 	</div>
 
@@ -112,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = md5($_POST['password']); // Хеширование пароля
 
     $q = "SELECT * FROM `reader` WHERE `login`='".$login."' AND `password`='".$password."'";
-    // echo $q;
+    echo $q;
 
     $query = mysqli_query($con, $q);
     if(mysqli_num_rows($query) == 1)

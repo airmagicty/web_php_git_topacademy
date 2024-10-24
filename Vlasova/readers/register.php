@@ -142,7 +142,7 @@ if(isset($_POST["btn"])) {
 
    
     $q = "INSERT INTO `reader` (`name`, `login`, `email`, `password`) 
-          VALUES ('$name', ' $login', '$email', '". md5($password) ."')";
+          VALUES ('$name', '$login', '$email', '". md5($password) ."')";
 
     mysqli_query($con,$q); 
     header("location:add.php"); 

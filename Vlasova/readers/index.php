@@ -19,8 +19,8 @@
 
     $q = "SELECT * FROM `reader` WHERE `login`='".$login."' AND `password`='".$password."'";
 
-    $query = mysqli_query($con, $q);
-    if(mysqli_num_rows($query) != 1)
+    $query2 = mysqli_query($con, $q);
+    if(mysqli_num_rows($query2) != 1)
     {
 		header('Location: autorization.php');  
     } 
