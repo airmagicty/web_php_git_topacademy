@@ -16,7 +16,7 @@ move_uploaded_file($image_tmp, "../uploads/$image");
 
 $sql = "INSERT INTO students (name, email, group_name, mobile, parent_mobile, image) VALUES ('$name', '$email', '$group_number', '$mobile', '$parent_mobile', '$image');";
 
-// $sql->execute($name, $email, $group_number, $mobile, $parent_mobile, $image);
+
 
 if (mysqli_query($conn, $sql) === TRUE) {
     echo "New record created successfully";

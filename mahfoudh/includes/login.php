@@ -13,7 +13,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) === 1 ) {
         $user = mysqli_fetch_array($result);
-        //check if password is correct
         
         $_SESSION['username'] = $user['username'];
         header("Location:./pages/main.php");

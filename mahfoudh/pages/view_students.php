@@ -85,14 +85,18 @@ $result = mysqli_query($conn, $sql);
                         <td>".$row['email']."</td>
                         <td>".$row['mobile']."</td>
                         <td>".$row['parent_mobile']."</td>
-                        <td><img src='../";
+                        <td>";if(file_exists("../uploads/".$row['image'])) {
+                            echo"<img src='../";
                         if ($row['image'] != "") {
                             echo "uploads/". $row['image'];
                         } else {
                             echo "images/default.jpg";
                         }
-                        echo "' alt='student image' width='100'></td>
-
+                        echo "' alt='student image' width='100'>";
+                        } else {
+                            echo "<img src='../images/default.jpg' alt='student image' width='100'>";
+                        }
+                        echo "</td>
                         <td>
                             <a href='./view_marks.php?id=".$row['id']."' class='btn btn-warning'>view marks</a>
                             <a href='./edit_student.php?id=".$row['id']."' class='btn btn-warning'>Edit Student</a>
