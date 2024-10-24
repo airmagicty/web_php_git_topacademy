@@ -12,6 +12,21 @@
 	} 
 ?> 
 
+<?php 
+
+	$login = $_COOKIE['login'];
+    $password = $_COOKIE['password'];
+
+    $q = "SELECT * FROM `reader` WHERE `login`='".$login."' AND `password`='".$password."'";
+
+    $query = mysqli_query($con, $q);
+    if(mysqli_num_rows($query) != 1)
+    {
+		header('Location: autorization.php');  
+    } 
+?> 
+
+
 <html> 
 
 <head> 

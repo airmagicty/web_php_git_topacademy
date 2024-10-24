@@ -55,7 +55,7 @@ label {
 <body>
 
 <div class="form-container">
-		<form action="autorization.php" method="POST">
+	<form action="autorization.php" method="POST">
 			<h2>Авторизация</h2>
 
       <div class="form-group">
@@ -108,16 +108,21 @@ include("connect.php"); // Подключение к базе данных
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $login=$_POST['login'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Хеширование пароля
+    // $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Хеширование пароля
+    $password = md5($_POST['password']); // Хеширование пароля
 
-    //$q = "INSERT INTO `reader` (`name`, `login`, `password`) VALUES (`$name`, `$login`, `$password`)";
-    $q = "SELECT * FROM `reader` WHERE `name`='".$name."' AND `password`='".$password."'";
+    $q = "SELECT * FROM `reader` WHERE `login`='".$login."' AND `password`='".$password."'";
     // echo $q;
 
     $query = mysqli_query($con, $q);
     if(mysqli_num_rows($query) == 1)
     {
-        
+      setcookie("login", $login, time()+1209600);  
+      setcookie("password", $password, time()+1209600);
+      header('Location: index.php');  
+      
+    } else {
+      echo "Нет такого пользователя";
     }
 
 }
