@@ -1,0 +1,27 @@
+CREATE DATABASE school;
+
+USE school;
+
+CREATE TABLE users (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(255) NOT NULL,
+	pwd VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE students (
+	id INT(11) AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	email VARCHAR(100 ),
+	group_name VARCHAR(50),
+	mobile VARCHAR(15),
+	parent_mobile VARCHAR(15),
+	image VARCHAR(255)
+);
+
+CREATE TABLE marks (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	student_id INT,
+	subject VARCHAR(100),
+	mark INT(1),
+	FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
