@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <!-- Bootstrap for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-info">
+<div class="container mt-5 card  ">
+    <h1>Сотрудники</h1>
+
+    <!-- Список текущих сотрудников -->
+    <div class="mb-3 card-body ">
+        <h2 class="card-header bg-info">Список сотрудников</h2>
+        <div id="employeeList" class="alert alert-secondary"></div>
+    </div>
+
+    <!-- Список текущих должностей -->
+    <div class="mb-3 card-body text-bg-primary">
+        <h2 class="card-header bg-info">Текущая должность</h2>
+        <div id="positionList" class="alert alert-secondary"></div>
+    </div>
+
+    <!-- Форма добавления нового сотрудника -->
+    <form id="addEmployeeForm" class="mb-3">
+        <h2>Добавить сотрудника</h2>
+        <div class="form-group">
+            <label for="login">Логин</label>
+            <input type="text" class="form-control" id="login" name="login" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="position">Должность</label>
+            <select id="position" name="position_id" class="form-control" required></select>
+        </div>
+        <button type="submit" class="btn btn-info">Добавить</button>
+    </form>
+
+    <!-- Форма изменения сотрудника -->
+    <form id="editEmployeeForm" class="mb-3">
+        <h2>Внести изменения</h2>
+        <div class="form-group">
+            <label for="employeeSelect">Сотрудник</label>
+            <select id="employeeSelect" name="login" class="form-control" required></select>
+        </div>
+        <div class="form-group">
+            <label for="newPosition">Новая должность</label>
+            <select id="newPosition" name="new_position_id" class="form-control" required></select>
+        </div>
+        <button type="submit" class="btn btn-info">Изменить</button>
+    </form>
+
+    <!-- Форма удаления сотрудника -->
+    <form id="deleteEmployeeForm" class="mb-3">
+        <h2>Удалить сотрудника</h2>
+        <div class="form-group">
+            <label for="deleteEmployee">Сотрудник</label>
+            <select id="deleteEmployee" name="login" class="form-control" required></select>
+        </div>
+        <button type="submit" class="btn btn-info">Удалить</button>
+    </form>
+
+
+</div>
+    <style>
+        body{
+            background-color: #b9b2b2;
+        }
+    </style>
+<!-- Подключение скрипта -->
+<script src="script.js"></script>
+</body>
+</html>
