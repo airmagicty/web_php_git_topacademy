@@ -110,16 +110,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login=$_POST['login'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Хеширование пароля
 
-    $q = "INSERT INTO `reader` (`name`, `login`, `password`) VALUES (`$name`, `$login`, `$password`)";
-    $stmt = mysqli_prepare($con, $q);
-    mysqli_stmt_bind_param($stmt, $name, $login, $password);
-    
-    if (mysqli_stmt_execute($stmt)) {
-        echo "Авторизация успешна!";
-    } else {
-        echo "Зарегестрируйтесь: " . mysqli_error($con);
+    //$q = "INSERT INTO `reader` (`name`, `login`, `password`) VALUES (`$name`, `$login`, `$password`)";
+    $q = "SELECT * FROM `reader` WHERE `name`='".$name."' AND `password`='".$password."'";
+    // echo $q;
+
+    $query = mysqli_query($con, $q);
+    if(mysqli_num_rows($query) == 1)
+    {
+        
     }
-    mysqli_query($con,$q); 
-    header("location:index.php"); 
+
 }
+
 ?>

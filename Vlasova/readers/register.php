@@ -130,22 +130,22 @@ if(isset($_POST["btn"])) {
             $err[] = "Пользователь с таким логином уже существует в базе данных";
         }
     
-        // Если нет ошибок, то добавляем в БД нового пользователя
-        if(count($err) == 0)
-        {
+        // // Если нет ошибок, то добавляем в БД нового пользователя
+        // if(count($err) == 0)
+        // {
     
-            // $login = $_POST['login'];
+        //     // $login = $_POST['login'];
     
-            // Убераем лишние пробелы и делаем двойное хеширование
-            $password = md5(md5(trim($_POST['password'])));
-        }
+        //     // Убераем лишние пробелы и делаем двойное хеширование
+        //     $password = md5(md5(trim($_POST['password'])));
+        // }
 
    
     $q = "INSERT INTO `reader` (`name`, `login`, `email`, `password`) 
           VALUES ('$name', ' $login', '$email', '$password')";
 
     mysqli_query($con,$q); 
-    //header("location:index.php"); 
+    header("location:add.php"); 
 } 
 ?>
 
