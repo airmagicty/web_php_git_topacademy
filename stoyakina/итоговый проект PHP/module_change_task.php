@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         WHERE task_id = $task_id;";
 
     /**/if($conn->query($sql)){
-        echo "Данные успешно добавлены";
+        echo "Данные успешно изменены";
         header("Location: home_page.php");
     } else{
         echo "Ошибка: " . $conn->error;

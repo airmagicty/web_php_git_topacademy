@@ -79,13 +79,23 @@ async function fetchTasks() {
     const deleteButtons = document.querySelectorAll('.delete-button');
     deleteButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
-            console.log(index+1);
-            const taskId = index+1;
-            if (confirm('Вы уверены, что хотите удалить эту задачу?')) {
-                // Отправка AJAX-запроса на удаление задачи
-                fetch(`module_delete_task.php?task_id_in_module=${taskId}`);
-                location.reload();
-            }             
+            // console.log(index+1);
+            // const taskId = index+1;
+
+            const taskDiv = button.closest('div'); // Находим ближайший родительский div
+            const taskIdInput = taskDiv.querySelector('#task_id'); // Находим input с ID, начинающимся на 'task_id_'
+            console.log('taskIdInput = ', taskIdInput);   
+
+
+        if (taskIdInput) {
+            const taskId = taskIdInput.value; // Получаем ID задачи из атрибута id
+            console.log('Task ID:', taskId); // Выводим ID задачи в консоль
+                if (confirm('Вы уверены, что хотите удалить эту задачу?')) {
+                    // Отправка AJAX-запроса на удаление задачи
+                    fetch(`module_delete_task.php?task_id_in_module=${taskId}`);
+                    location.reload();
+                }
+            }
        });
    });
 

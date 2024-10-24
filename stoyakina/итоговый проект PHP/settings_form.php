@@ -14,6 +14,10 @@
             height: 100vh;
         }
 
+        input{
+            height: 50px;
+        }
+
         .login-form {
             background: white;
             padding: 20px;
@@ -61,15 +65,15 @@
 <body>
 
 <div class="login-form">
-    <h2>Авторизация</h2>
+    <h2>Настройки цвета интерфейса</h2>
     <form action="authorization_processing.php" method="post">
         <div class="form-group">
-            <label for="username">Логин:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="username">Цвет основной:</label>
+            <input type="color" id="head" name="head" value="#5cb85c" />
         </div>
         <div class="form-group">
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
+            <label for="password">Цвет побочный:</label>
+            <input type="color" id="head" name="head" value="#296029" />
         </div>
         <div class="form-group">
             <button type="submit">Войти</button>
@@ -78,16 +82,6 @@
     </form>
 </div>
 
-<!-- <script>
 
-
-    session_start(); // Начинаем сессию
-
-    if (isset($_SESSION['error_message'])) {
-        echo "<script>alert(" $_SESSION['error_message'] ");</script><script>"; 
-        unset($_SESSION['error_message']); // Удаляем сообщение после отображения
-    }
-
-</script> -->
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 22 2024 г., 20:00
+-- Время создания: Окт 24 2024 г., 20:00
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -47,8 +47,7 @@ INSERT INTO `tasks` (`task_title`, `due_date`, `priority`, `status`, `descriptio
 ('task1', '2024-10-10 18:44:00', 'low', 'new', 'go to shop`', 2),
 ('task2', '2024-10-03 18:58:00', 'medium', 'in-progress', 'ly-ly', 3),
 ('task2', '2024-10-03 18:58:00', 'medium', 'in-progress', 'ly-ly', 4),
-('task3', '2024-10-21 19:00:00', 'medium', 'in-progress', 'qqq', 5),
-('task4', '2024-10-02 18:54:00', 'high', 'in-progress', 'oisjofije', 6);
+('task3', '2024-10-21 19:00:00', 'medium', 'in-progress', 'qqq', 5);
 
 -- --------------------------------------------------------
 
@@ -59,15 +58,18 @@ INSERT INTO `tasks` (`task_title`, `due_date`, `priority`, `status`, `descriptio
 CREATE TABLE `users` (
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL
+  `email` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`username`, `password`, `email`) VALUES
-('1', '123', 'g46523@yandex.ru');
+INSERT INTO `users` (`username`, `password`, `email`, `id`) VALUES
+('1', '123', 'g46523@yandex.ru', 1),
+('KKKK_7', 'a1111111', 'uhi1@yandex.ru', 2),
+('GFDa_8', 'adfwr7899', 't5651@yandex.ru', 6);
 
 --
 -- Индексы сохранённых таблиц
@@ -80,6 +82,12 @@ ALTER TABLE `tasks`
   ADD PRIMARY KEY (`task_id`);
 
 --
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -88,6 +96,12 @@ ALTER TABLE `tasks`
 --
 ALTER TABLE `tasks`
   MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
